@@ -13,13 +13,15 @@
                 <th scope="col">Status</th>
             </tr>
             <tbody>
-                {%for book in books%}
+                {%for task in tasks%}
                 <tr>
                     <th scope="row">{{forloop.counter}}</th>
-                    <td>{{book.title}}</td>
-                    <td>{{book.author_name}}</td>
-                    <td>{{book.published_year}}</td>
-                    <td>{{book.is_available}}</td>
+                    <td>{{task.name}}</td>
+                    <td>{{task.description}}</td>
+                    <td>{{task.created}}</td>
+                    <td>{{task.status}}</td>
+                    <td><input class="btn btn-success" type="submit" value="Submit"></td>
+                    <td><input class="btn btn-danger" type="remove" value="Remove"></td>
                 </tr>
                 {%endfor%}
             </tbody>

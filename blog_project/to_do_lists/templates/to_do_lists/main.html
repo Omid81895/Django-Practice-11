@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{% block title %}<title>Main</title>{% endblock title %}
+{%block content%}
+<div class="container-fluid">
+    <div class="row justify-content-center ps-5">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tasks</th>
+                <th scope="col">Description</th>
+                <th scope="col">Created at</th>
+                <th scope="col">Status</th>
+            </tr>
+            <tbody>
+                {%for book in books%}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{book.title}}</td>
+                    <td>{{book.author_name}}</td>
+                    <td>{{book.published_year}}</td>
+                    <td>{{book.is_available}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </thead>
+    </table>
+    </div>
+    </div>
+{%endblock content%}

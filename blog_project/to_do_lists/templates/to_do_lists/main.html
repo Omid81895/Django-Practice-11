@@ -11,6 +11,8 @@
                 <th scope="col">Description</th>
                 <th scope="col">Created at</th>
                 <th scope="col">Status</th>
+                <th scope="col">Submit?</th>
+                <th scope="col">Remove?</th>
             </tr>
             <tbody>
                 {%for task in tasks%}
@@ -19,7 +21,11 @@
                     <td>{{task.name}}</td>
                     <td>{{task.description}}</td>
                     <td>{{task.created}}</td>
-                    <td>{{task.status}}</td>
+                    {%if task.status%}
+                        <td class="fw-bold text-success">Yes</td>
+                    {%else%}
+                        <td class = 'fw-bold text-danger'>No</td>
+                    {%endif%}
                     <td><input class="btn btn-success" type="submit" value="Submit"></td>
                     <td><input class="btn btn-danger" type="remove" value="Remove"></td>
                 </tr>

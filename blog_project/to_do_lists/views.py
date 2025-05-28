@@ -5,7 +5,7 @@ from .form import ToDoListForm
 import datetime as dt
 # Create your views here.
 def todolist(request):
-    tasks = ToDoList.objects.all()
+    tasks = ToDoList.objects.all().order_by('-created')
     return render (request,'to_do_lists/main.html', {'tasks': tasks})
 def add(request):
     if request.method == 'POST':

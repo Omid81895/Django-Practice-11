@@ -17,7 +17,7 @@
             <tbody>
                 {%for task in tasks%}
                 <tr>
-                    <th scope="row">{{forloop.counter}}</th>
+                    <th scope="row">{{task.id}}</th>
                     <td>{{task.name}}</td>
                     <td>{{task.description}}</td>
                     <td>{{task.created}}</td>
@@ -26,7 +26,7 @@
                     {%else%}
                         <td class = 'fw-bold text-danger'>No</td>
                     {%endif%}
-                    <td><input class="btn btn-success" type="submit"  value="Submit"></td>
+                    <td><a href="{%url 'change' task.id%}"><input class="btn btn-success" type="button"  value="Submit"></a></td>
                     <td><input class="btn btn-danger" type="button" value="Remove"></td>
                 </tr>
                 {%endfor%}

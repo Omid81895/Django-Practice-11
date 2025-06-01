@@ -36,3 +36,21 @@ def change(request, id):
                                         'status': task.status,
                                         'created': task.created})
     return render (request,'to_do_lists/change.html',{'form':form})
+
+def delete(request,id):
+    task = ToDoList.objects.get(id=id)
+    if request.method == 'POST':
+        form = ToDoListForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            task.name = cd['name']
+            task.description = cd['description']
+            task.status = cd['status']
+            task.delete()
+            return redirect('home')
+    else:
+        form = ToDoListForm(initial= {'name' : task.name,
+                                        'description': task.description,
+                                        'status': task.status,
+                                        'created': task.created})
+    return render (request,'to_do_lists/delete.html',{'form':form})

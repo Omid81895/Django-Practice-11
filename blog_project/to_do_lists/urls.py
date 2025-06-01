@@ -4,4 +4,5 @@ urlpatterns = [
     path('main/', views.todolist, name = 'home'),
     path('add/', views.add, name = 'add'),
     path('change/<str:id>/', views.change, name = 'change'),
+    path('delete/<str:id>/',views.delete, name='delete')
 ]

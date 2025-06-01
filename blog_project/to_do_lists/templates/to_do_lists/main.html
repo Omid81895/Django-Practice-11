@@ -27,7 +27,7 @@
                         <td class = 'fw-bold text-danger'>No</td>
                     {%endif%}
                     <td><a href="{%url 'change' task.id%}"><input class="btn btn-success" type="button"  value="Submit"></a></td>
-                    <td><input class="btn btn-danger" type="button" value="Remove"></td>
+                    <td><a href="{%url 'delete' task.id%}"><input class="btn btn-danger" type="button" value="Remove"></a></td>
                 </tr>
                 {%endfor%}
             </tbody>
